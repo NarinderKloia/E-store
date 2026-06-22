@@ -2,12 +2,14 @@ package com.example.store.entity;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
@@ -40,6 +42,9 @@ public class order {
 
     @Column(table = "total_price",nullable = false)
     private BigDecimal totalPrice;
+
+    @OneToMany(mappedBy = "order")
+    private List<OrderItems> orderitems;
 
     @Column(table = "created_at",nullable = false)
     private LocalDateTime createdAt;

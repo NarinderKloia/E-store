@@ -1,6 +1,9 @@
 package com.example.store.entity;
 
 import java.math.BigDecimal;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -44,4 +47,9 @@ public class Product {
     )
     @Column(name ="stock_quantity",nullable = false)
     private Integer stock;
+
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "product")
+    private List<OrderItems> orderitems;
 }
