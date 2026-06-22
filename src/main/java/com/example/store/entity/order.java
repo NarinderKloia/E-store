@@ -30,23 +30,23 @@ public class order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(table = "customer_name", nullable = false)
+    @Column(name = "customer_name", nullable = false)
     private String customerName;
 
     @Email
-    @Column(table = "customer_email", nullable = false)
+    @Column(name = "customer_email", nullable = false)
     private String customerEmail;
 
     @Column(nullable = false)
     private String status;
 
-    @Column(table = "total_price",nullable = false)
+    @Column(name = "total_price",nullable = false)
     private BigDecimal totalPrice;
 
     @OneToMany(mappedBy = "order")
     private List<OrderItems> orderitems;
 
-    @Column(table = "created_at",nullable = false)
+    @Column(name = "created_at",nullable = false)
     private LocalDateTime createdAt;
 
     @PrePersist
