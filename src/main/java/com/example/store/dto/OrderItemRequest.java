@@ -20,6 +20,6 @@ public class OrderItemRequest {
 
     @NotNull(message = "quantity is required")
     @Min(value = 0, message = "quatity must be At least one")
-    private Integer quatity;
+    private Integer quantity;
 
 }
