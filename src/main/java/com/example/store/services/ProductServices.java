@@ -45,7 +45,13 @@ public class ProductServices {
 
     }
 
-    public void deleteProduct(Long id) {
-        productrepo.deleteById(id);
+    public String deleteProduct(Long id) {
+
+    if(id == null){
+        return "Product ID cannot be null";
     }
+
+    productrepo.deleteById(id);
+    return "Product Deleted Successfully";
+}
 }

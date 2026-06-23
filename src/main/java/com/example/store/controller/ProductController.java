@@ -22,7 +22,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ProductController {
 
-    private ProductServices productservices;
+    private final ProductServices productservices;
 
     @PostMapping
     public Product createProduct(@Valid @RequestBody Product product) {
@@ -45,9 +45,10 @@ public class ProductController {
 
     }
 
-    @DeleteMapping("{id}")
-    public void deleteProduct(@Valid Long id) {
+    @DeleteMapping("/{id}")
+    public String deleteProduct(@Valid Long id) {
         productservices.deleteProduct(id);
+        return "Product Deleted";
     }
 
 }
